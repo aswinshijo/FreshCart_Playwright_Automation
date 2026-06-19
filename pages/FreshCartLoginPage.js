@@ -53,8 +53,6 @@ class FreshCartLoginPage{
        }
 
     }}
-    return false;
-    console.log("END")
 
 
 module.exports ={FreshCartLoginPage};
