@@ -27,7 +27,7 @@ class FreshCartLoginPage{
         for(let prod=0;prod<count;prod++){
             const productName= await this.products.nth(prod).locator('b').textContent();
             console.log(productName);
-            cons
+        
         }
     }
 
@@ -46,13 +46,20 @@ class FreshCartLoginPage{
         await this.CartButton.click()
     }
     async verifyProductInCart(productName){
-        
-       const cartProduct=await this.cartProducts.nth(i).textContent()
-       if(cartProduct.trim() ===productName){
-        return true
-       }
 
-    }}
+    const count = await this.cartProducts.count();
+
+    for(let i = 0; i < count; i++){
+
+        const cartProduct = await this.cartProducts.nth(i).textContent();
+
+        if(cartProduct.trim() === productName){
+            return true;
+        }
+    }
+
+    return false;
+}}
 
 
 module.exports ={FreshCartLoginPage};
